@@ -8,11 +8,14 @@ int main()
 {
 	double rho, U, mu, D;
 	cout << "We're going to calculate a Reynolds Number" << endl;
-	cout << "Please specify the velocity in m/s" << endl;                               cout << endl;                                                                       cin >> U;
-
-        cout << "Please specify the density in kg/m3" << endl;                              cout << endl;
-      	cin >> rho;
+	cout << "Please specify the velocity in m/s" << endl;
 	cout << endl;
+	cin >> U;
+
+        cout << "Please specify the density in kg/m3" << endl;
+	cout << endl;
+      	cin >> rho;
+	cout << endl
 
 	cout << "Please Specify the dynamic viscosity in SI units" << endl;
 	cout << endl;
