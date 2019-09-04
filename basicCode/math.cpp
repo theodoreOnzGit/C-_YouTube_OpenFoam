@@ -23,6 +23,8 @@ int main()
 
 	cout << sqrt(2.0) << endl;
 	cout << pow(2.0,0.5) << endl;
+	cout << "subtraction case" << endl;
+	cout << 2-3.555 << endl;
 	return 0;
 	}
 
