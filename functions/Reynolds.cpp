@@ -12,22 +12,22 @@ int main ()
 	double rho,U,D,mu,Re;
 	
 
-	cout << "input density in kg/m3 " << endl;
-	cin >> rho;
+	std::cout << "input density in kg/m3 " << std::endl;
+	std::cin >> rho;
 
-	cout << "input velocity in m/s " << endl;
-	cin >> U;
+	std::cout << "input velocity in m/s " << std::endl;
+	std::cin >> U;
 
-	cout << "input characteristic length in m "<< endl;
-	cin >> D;
+	std::cout << "input characteristic length in m "<< std::endl;
+	std::cin >> D;
 
-	cout << "input dynamic viscosity in SI units " << endl;
-	cin >> mu;
+	std::cout << "input dynamic viscosity in SI units " << std::endl;
+	std::cin >> mu;
 	// calc Re
-	cout << "the Re Number is " << endl;
+	std::cout << "the Re Number is " << std::endl;
 	Re = Reynolds_calc(rho,U,D,mu);
 
-	cout << Re << endl;
+	std::cout << Re << std::endl;
 
 
 	return 0;
