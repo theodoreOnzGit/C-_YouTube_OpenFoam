@@ -3,46 +3,45 @@
 #include <cmath>
 
 using namespace std;
-//adds two vectors of any length together (these must be column or row vectors)
-//
-//
+
 double vector_length(double x, double y, double z);
-int 2d_arraySize[](double vector[]);
+double vector_add(double vectorA[],double vectorB[]);
 
 int main ()
 {
-	double l,x,y,z;
-	double vector[3][1]={{x},{y},{z}};
+	double l;
+	double vector1[3][1];
 	
+	cout << "we are adding vector 1 to vector 2, they each have 3 rows and 1 col ... " << endl;
+	std::cout << "vector 1 input x " << std::endl;
+	std::cin >> vector1[0][0];
 
-	std::cout << "input x " << std::endl;
-	std::cin >> x;
+	std::cout << "vector 1 input y " << std::endl;
+	std::cin >> vector1[1][0];
 
-	std::cout << "input y " << std::endl;
-	std::cin >> y;
-
-	std::cout << "input z "<< std::endl;
-	std::cin >> z;
+	std::cout << "vector 1 input z "<< std::endl;
+	std::cin >> vector1[2][0];
 	
+	double vector2[3][1];
+	cout << "vector 2 input x " << endl;
+	cin >> vector2[0][0];
+
+	cout << "vector 2 input y " << endl;
+	cin >> vector2[1][0];
+
+	cout << "vector 2 input z " << endl;
+	cin >> vector2[2][0];
+
+
 	// calc length
-	//
-	vector[0][0] = x;
-	vector[1][0] = y;
-	vector[2][0] = z;
-	std::cout << "the length is " << std::endl;
-	l = vector_length(vector[0][0],vector[1][0],vector[2][0]);
+	// std::cout << "the length is " << std::endl;
+	// l = vector_length(vector[0][0],vector[1][0],vector[2][0]);
+	
+	double add_result[3][1] = vector_add(vector1,vector2);
 
 	std::cout << l << std::endl;
-	
-	// array size
-	int vectorSize[] = int 2d_arraySize(vector);
-	cout << "number of columns" << endl;
-	cout << vectorSize[0] << endl;
-	cout << endl;
-	cout << "number of rows " << endl;
-	cout << vectorSize[1] << endl;
-	
-	cout << sizeof(vector)/sizeof(vector[0][0]) << endl;
+
+
 	return 0;
 }
 
@@ -53,29 +52,18 @@ double vector_length(double x, double y, double z)
 	return l;
 }
 
-
-int 2d_arraySize[](double vector[])
+double vector_add(double vectorA, double vectorB)
 {
-	//let me measure the full size in bytes of the vector
-	double vector_bytes = sizeof(vector[]);
+	double vector_add_result[3][1];
 
-	//then let me find the size of the first column
-	double vector_col_bytes = sizeof(vector[0]);
+	//vector_add_result[] = vectorA[];
+	for (int i = 0, i < 3, i++)
+	{
+		vector_add_result[i][0] = vector1[i][0];
+	}	
+
+	return vector_add_result[];
 	
-	//let me then find how many rows there are
-	double nrows = vector_bytes/vector_col_bytes;
-	nrows = nrows +0.5;
-	int Nrows = round(nrows);
-	//now to find a row
-	
-	//let me find the size of a double variable (one element in this array)
-	double double_bytes = sizeof(double);
-	double ncols = vector_col_bytes/double_bytes;
-	ncols = ncols + 0.5;
-	int Ncols = round(nrows);
-	int size[1][2]={{Ncols},{Nrows}};	
-	return size[];
 }
-
 
 
