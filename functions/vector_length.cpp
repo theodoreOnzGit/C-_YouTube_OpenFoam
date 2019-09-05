@@ -14,18 +14,17 @@ int main ()
 	
 
 	std::cout << "input x " << std::endl;
-	std::cin >> x;
+	std::cin >> vector[0][0];
 
 	std::cout << "input y " << std::endl;
-	std::cin >> y;
+	std::cin >> vector[1][0];
 
 	std::cout << "input z "<< std::endl;
-	std::cin >> z;
+	std::cin >> vector[2][0];
 	
-	vector[3][1]={{x},{y},{z}};
 	// calc length
 	std::cout << "the length is " << std::endl;
-	l = vector_length(x,y,z);
+	l = vector_length(vector[0][0],vector[1][0],vector[2][0]);
 
 	std::cout << l << std::endl;
 
