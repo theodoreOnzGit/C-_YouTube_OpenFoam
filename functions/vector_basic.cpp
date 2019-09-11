@@ -5,7 +5,7 @@
 using namespace std;
 
 double vector_length(double x, double y, double z);
-double vector_add(double vectorA[],double vectorB[]);
+double vector_add(double vectorA[3][1],double vectorB[3][1]);
 
 int main ()
 {
@@ -37,9 +37,8 @@ int main ()
 	// std::cout << "the length is " << std::endl;
 	// l = vector_length(vector[0][0],vector[1][0],vector[2][0]);
 	
-	double add_result[3][1] = vector_add(vector1,vector2);
+	double add_result(vector1,vector2);
 
-	std::cout << l << std::endl;
 
 
 	return 0;
@@ -52,17 +51,21 @@ double vector_length(double x, double y, double z)
 	return l;
 }
 
-double vector_add(double vectorA, double vectorB)
+double vector_add(double vectorA[3][1],double vectorB[3][1])
+	//https://stackoverflow.com/questions/30541367/c-cannot-convert-double-to-double-for-argument-1-to-void-sortdouble-in
+	//https://www.youtube.com/watch?v=B3iC40frU4M&list=PLAE85DE8440AA6B83&index=36
 {
 	double vector_add_result[3][1];
 
 	//vector_add_result[] = vectorA[];
-	for (int i = 0, i < 3, i++)
+	for (int i = 0; i < 3; i++)
 	{
-		vector_add_result[i][0] = vector1[i][0];
+		vector_add_result[i][0] = vectorA[i][0]+vectorB[i][0];
+		cout << "row " << i+1 << "has a value of ";
+		cout << vector_add_result[i][0] << endl;
 	}	
 
-	return vector_add_result[];
+	return 0;
 	
 }
 
