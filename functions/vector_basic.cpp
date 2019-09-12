@@ -4,12 +4,12 @@
 
 using namespace std;
 
-double vector_length(double x, double y, double z);
+//double vector_length(double x, double y, double z);
 double vector_add(double vectorA[3][1],double vectorB[3][1]);
 
 int main ()
 {
-	double l;
+	//double l;
 	double vector1[3][1];
 	
 	cout << "we are adding vector 1 to vector 2, they each have 3 rows and 1 col ... " << endl;
@@ -36,7 +36,7 @@ int main ()
 	// calc length
 	// std::cout << "the length is " << std::endl;
 	// l = vector_length(vector[0][0],vector[1][0],vector[2][0]);
-	
+	cout << vector1 << endl;	
 	double add_result(vector1,vector2);
 
 
