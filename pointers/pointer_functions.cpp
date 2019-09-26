@@ -36,7 +36,7 @@ int main(){
 	
 		
 	cout << "credits to: http://www.cplusplus.com/doc/tutorial/pointers/" << endl;
-
+//https://www.geeksforgeeks.org/return-local-array-c-function/
 
 	return 0;
 }
