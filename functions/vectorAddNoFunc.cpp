@@ -36,10 +36,21 @@ int main ()
 	// calc length
 	// std::cout << "the length is " << std::endl;
 	// l = vector_length(vector[0][0],vector[1][0],vector[2][0]);
+	// debugging functions outputting array may be difficult, let's try something
+	// easier first	
+	// double add_result[3][1] = vector_add(vector1,vector2);
+	double add_result[3][1];
+	for (int i = 0; i < 3 ; i++){
 	
-	double add_result[3][1] = vector_add(vector1,vector2);
+	add_result[i][0] = vector1[i][0] + vector2[i][0];
 
-	std::cout << l << std::endl;
+	cout << "the element in row " << i << " and column 0 is ...  " << endl;
+
+	cout << add_result[i][0] << endl;
+	
+	}
+
+	//std::cout << l << std::endl;
 
 
 	return 0;
@@ -51,7 +62,7 @@ double vector_length(double x, double y, double z)
 	l = sqrt(pow(x,2.0)+pow(y,2.0)+pow(z,2.0));
 	return l;
 }
-
+/*
 double vector_add(double vectorA, double vectorB)
 {
 	double vector_add_result[3][1];
@@ -66,6 +77,6 @@ double vector_add(double vectorA, double vectorB)
 	
 }
 
-
+*/
 
 
