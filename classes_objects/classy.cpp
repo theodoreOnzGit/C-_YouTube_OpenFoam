@@ -25,52 +25,21 @@ class Vectors
 		void 	addVectors();
 		int	printVectorSum();
 
+		double vector1_length();
+		double getVector1Length();
+
 	protected:
 	private:
 		double 	vector1[3][1];
 		double 	vector2[3][1];
 		double	vectorSum[3][1];
+		double	vectorLength;
 
 };
 
 
 int main ()
 {
-/*
-	// note this only works for single dimension arrays not 2D arrays
-	double l;
-	double vector1[3];
-	
-	cout << "we are adding vector 1 to vector 2, they each have 3 rows and 1 col ... " << endl;
-	std::cout << "vector 1 input x " << std::endl;
-	std::cin >> vector1[0];
-
-	std::cout << "vector 1 input y " << std::endl;
-	std::cin >> vector1[1];
-
-	std::cout << "vector 1 input z "<< std::endl;
-	std::cin >> vector1[2];
-	
-	double vector2[3];
-	cout << "vector 2 input x " << endl;
-	cin >> vector2[0];
-
-	cout << "vector 2 input y " << endl;
-	cin >> vector2[1];
-
-	cout << "vector 2 input z " << endl;
-	cin >> vector2[2];
-
-
-	// calc length
-	// std::cout << "the length is " << std::endl;
-	// l = vector_length(vector[0][0],vector[1][0],vector[2][0]);
-	
-	double add_result = vector_add(vector1,vector2);
-
-	cout << "the output of the function is: " << endl;
-	std::cout << add_result << std::endl;
-*/
 	// create an object now...
 	//
 	
@@ -82,6 +51,14 @@ int main ()
 	vec.printVectorSum();
 
 
+	cout << "vector 1 length is:" << endl;
+	vec.vector1_length();
+
+	double l = vec.getVector1Length();
+
+	cout << l << endl;
+
+
 	return 0;
 }
 
@@ -91,12 +68,22 @@ int main ()
 
 
 
-double vector_length(double x, double y, double z)
+double Vectors::vector1_length()
 {
+	
 	double l;
-	l = sqrt(pow(x,2.0)+pow(y,2.0)+pow(z,2.0));
+	l = sqrt(pow(vector1[0][0],2.0)+pow(vector1[1][0],2.0)+pow(vector1[2][0],2.0));
+	vectorLength = l;
 	return l;
 }
+
+double Vectors::getVector1Length()
+{
+	return vectorLength;
+
+}
+
+
 
 void Vectors::addVectors() // ensure you pass in arrays of this fixed size
 {
