@@ -17,13 +17,19 @@ class Vectors
 	// https://www.w3schools.com/cpp/cpp_encapsulation.asp
 	// https://www.youtube.com/watch?v=jTS7JTud1qQ&list=PLAE85DE8440AA6B83&index=13
 		void setVector1();
-		int getVector1();	
-	
+		int printVector1();
+
+		void setVector2();
+		int printVector2();
+
+		void 	addVectors();
+		int	printVectorSum();
 
 	protected:
 	private:
-		double vector1[3][1];
-		//double vector2[3][1];
+		double 	vector1[3][1];
+		double 	vector2[3][1];
+		double	vectorSum[3][1];
 
 };
 
@@ -70,7 +76,10 @@ int main ()
 	
 	Vectors vec;	
 	vec.setVector1();
-	vec.getVector1();	
+	vec.setVector2();
+
+	vec.addVectors();
+	vec.printVectorSum();
 
 
 	return 0;
@@ -89,24 +98,30 @@ double vector_length(double x, double y, double z)
 	return l;
 }
 
-double vector_add(double vectorA[], double vectorB[]) // ensure you pass in arrays of this fixed size
+void Vectors::addVectors() // ensure you pass in arrays of this fixed size
 {
-	double vector_add_result[3];
-
-	//vector_add_result[] = vectorA[];
 	for (int i = 0 ; i < 3 ; i++) // ensure these are semicolons here!
 	{
-		vector_add_result[i] = vectorA[i] + vectorB[i]; // ensure this is vector A and B
-
-		cout << "column " << i << " is" << endl;
-		cout << vector_add_result[i] << endl; // prints out the result
-
+		vectorSum[i][0] = vector1[i][0] + vector2[i][0]; // ensure this is vector A and B
 	}	
 
-	return *vector_add_result; // you can't return a vector here, only pointers
 	
 }
 
+int Vectors::printVectorSum() // ensure you pass in arrays of this fixed size
+{
+        for (int i = 0 ; i < 3 ; i++) // ensure these are semicolons here!
+        {
+                cout << "column " << i << " is for Vector sum" << endl;
+                cout << vectorSum[i][0] << endl; // prints out the result
+
+        }
+
+
+        return 0;
+
+
+}
 
 // now here are the functions (a.k.a methods) of the classes
 // https://www.w3schools.com/cpp/cpp_class_methods.asp
@@ -120,7 +135,6 @@ Vectors::Vectors() // syntax is class:function()
 void Vectors::setVector1()
 {
 
-        cout << "we are adding vector 1 to vector 2, they each have 3 rows and 1 col ... " << endl;
         std::cout << "vector 1 input x " << std::endl;
         std::cin >> vector1[0][0];
 
@@ -132,12 +146,12 @@ void Vectors::setVector1()
 	
 }
 
-int Vectors::getVector1()
+int Vectors::printVector1()
 {
 // just prints out vector1
         for (int i = 0 ; i < 3 ; i++) // ensure these are semicolons here!
         {
-                cout << "column " << i << " is" << endl;
+                cout << "column " << i << " is for Vector 1" << endl;
                 cout << vector1[i][0] << endl; // prints out the result
 
         }
@@ -145,4 +159,37 @@ int Vectors::getVector1()
 
 	return 0;
 }
+// working with vectors in C++
+// https://www.journaldev.com/39081/return-array-in-c-plus-plus-function
+
+
+void Vectors::setVector2()
+{
+
+        std::cout << "vector 1 input x " << std::endl;
+        std::cin >> vector2[0][0];
+
+        std::cout << "vector 1 input y " << std::endl;
+        std::cin >> vector2[1][0];
+
+        std::cout << "vector 1 input z "<< std::endl;
+        std::cin >> vector2[2][0];
+
+}
+
+int Vectors::printVector2()
+{
+// just prints out vector2
+        for (int i = 0 ; i < 3 ; i++) // ensure these are semicolons here!
+        {
+                cout << "column " << i << " is for Vector 2" << endl;
+                cout << vector2[i][0] << endl; // prints out the result
+
+        }
+
+
+        return 0;
+}
+
+
 
