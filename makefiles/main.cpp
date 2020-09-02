@@ -8,6 +8,7 @@ using namespace std;
 
 int main ()
 {
+	cout << "change 1" << endl;
 	Vectors vec; // importing a class into your main file, is known as creating an object
 	vec.setVector1();
 	vec.setVector2();
