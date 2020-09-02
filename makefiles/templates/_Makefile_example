@@ -1,11 +1,11 @@
 SRCS := $(wildcard *.cpp)
 CC := g++
 BINS := $(SRCS:%.cpp=%)
+H_FILES := $(wildcard *.h)
 
 
 
-
-all: compile helloWorld
+all: ${BINS} compile helloWorld
 
 
 
@@ -14,7 +14,7 @@ helloWorld:
 	@echo "hello World"
 	@echo "trololol"
 
-compile: ${BINS} vectors.h  
+compile: ${BINS}    
 	${CC} main.o vectors.o -o vectors1
 
 clean: 
@@ -24,17 +24,11 @@ clean:
 listCPPFiles:
 	@echo ${SRCS}
 	@echo ${BINS}
+	@echo ${H_FILES}
+
+
 
 %: %.cpp
 	${CC} -c $<
-
-
-
-
-#main: main.cpp
-#	${CC} -c main.cpp
-
-#vectors: vectors.cpp vectors.h
-#	${CC} -c vectors.cpp
 
 
