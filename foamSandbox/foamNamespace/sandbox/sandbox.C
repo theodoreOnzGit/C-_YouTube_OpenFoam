@@ -27,6 +27,40 @@ Application
     sandbox
 
 Description
+    Just a place to play around with openfoam code
+
+
+Notes:
+    important classes to understand
+    fvScalarMatrix, this is the class that contains the solve functions
+    
+    this is defined in fvMatricesFwd.H under
+    src/finiteVolume/fvMatrices 
+
+    as a type of fvMatrix
+    fvMatrix is declared as a class in fvMatrix.H
+    src/finiteVolume/fvMatrices/fvMatrix
+    
+    fvMatrix inherits from the classes refCount and lduMatrix
+    it has the constructors fvMatrix
+    the most important function here we see most often is solve();	
+    
+    This is in line 245 of fvMatrix.H 
+    
+    this is a class declaration within the fvMatrix class known as 
+    fvSolver, it uses the SolverPerformance<Type> kind of template thingy
+
+    SolverPerformance is under the foam namespace
+    Foam::SolverPerformance 
+
+    mostly seen under fvMatrixSolve.C in the same directory
+
+
+    often of course, the template syntax is so often used. 
+    it may be useful to 
+    understand it a little better
+
+
 
 \*---------------------------------------------------------------------------*/
 #include "linearEqn.H"
