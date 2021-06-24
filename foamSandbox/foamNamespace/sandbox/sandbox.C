@@ -68,6 +68,48 @@ Notes:
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+
+// C++ templates. Why learn? Because they are critical 
+// in terms of syntax. fvMatrix.H uses templates everywhere
+// refer to : https://www.geeksforgeeks.org/templates-cpp/
+
+// the most simplest of templates, let's just think of printing,
+
+// this is a function template
+
+
+
+template <typename Type>
+Type printType(Type var1, Type var2)
+{
+    Info << "this is the custom template printType .... " << endl;
+    Info << var1 << endl;
+    Info << var2 << endl;
+    Info << "the variable types are " << typeid(var1).name() << endl;
+    return 0;
+}
+
+// sometimes class is used in place of typename... 
+
+template <class Type>
+Type printType2(Type var1, Type var2)
+{
+    Info << "this is the custom template printType2 (class) .... " << endl;
+    Info << var1 << endl;
+    Info << var2 << endl;
+    Info << "the variable types are " << typeid(var1).name() << endl;
+    return 0;
+}
+
+// now, this is NOT class declaration, so sometimes typename is used
+// to prevent less confusion
+// however, openfoam code often uses class instead of typename,
+// so unfortunately you got to get used to it
+
+// now that we've dealt with function templates, we can then move on to
+// class templates
+
+
 int main(int argc, char *argv[])
 {
     //#include "setRootCase.H"
@@ -75,32 +117,19 @@ int main(int argc, char *argv[])
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+    #include "linearEqnDemo.H"
 
-    scalar a=5.2;
-    scalar b=1.23;
+    printType<int>(1,2);   
+    printType<char>('a','b');
+    printType<bool>(1,0); 
 
-    std::cout << "hi" << std::endl;
-    Foam::Info << "hi" << Foam::endl;
+ 
+    printType2<int>(1,2);   
+    printType2<char>('a','b');
+    printType2<bool>(1,0); 
 
-    Info << "add 2 scalars" << endl;
-    Info << a << "+" << b << " = " << a+b << endl;
-// let's try some linear equations...
-
-    linearEqn eq1(a,b);
-    eq1.roots();
-
-    Info << "root of equation" << endl;
-    Info << eq1.roots() << endl;
-
-    scalar x=5;
-    scalar y=eq1.value(x); 
-
-    Info << "evaluate linear equation at x = " << x << endl;
-    Info << "linear equation is ..." << endl;
-
-    Info << "y = " << a << "x + " << b << endl;
-    Info << "y = " << y << " at x = " << x << endl;
-
+    
+    
     return 0;
 }
 
