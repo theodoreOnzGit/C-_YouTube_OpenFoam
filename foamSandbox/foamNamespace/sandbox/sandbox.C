@@ -69,46 +69,7 @@ Notes:
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 
-// C++ templates. Why learn? Because they are critical 
-// in terms of syntax. fvMatrix.H uses templates everywhere
-// refer to : https://www.geeksforgeeks.org/templates-cpp/
-
-// the most simplest of templates, let's just think of printing,
-
-// this is a function template
-
-
-
-template <typename Type>
-Type printType(Type var1, Type var2)
-{
-    Info << "this is the custom template printType .... " << endl;
-    Info << var1 << endl;
-    Info << var2 << endl;
-    Info << "the variable types are " << typeid(var1).name() << endl;
-    return 0;
-}
-
-// sometimes class is used in place of typename... 
-
-template <class Type>
-Type printType2(Type var1, Type var2)
-{
-    Info << "this is the custom template printType2 (class) .... " << endl;
-    Info << var1 << endl;
-    Info << var2 << endl;
-    Info << "the variable types are " << typeid(var1).name() << endl;
-    return 0;
-}
-
-// now, this is NOT class declaration, so sometimes typename is used
-// to prevent less confusion
-// however, openfoam code often uses class instead of typename,
-// so unfortunately you got to get used to it
-
-// now that we've dealt with function templates, we can then move on to
-// class templates
-
+#include "templateDemo.H"
 
 int main(int argc, char *argv[])
 {
@@ -128,7 +89,7 @@ int main(int argc, char *argv[])
     printType2<char>('a','b');
     printType2<bool>(1,0); 
 
-    
+    printClass<int> hello;    
     
     return 0;
 }
