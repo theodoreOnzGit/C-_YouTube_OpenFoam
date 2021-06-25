@@ -88,27 +88,39 @@ public:
     // Constructors
 
         //- Construct given no input
-        printClass()
-        {
-            Info << "I am an empty constructor" << endl;
-        }
+        printClass();
 
         //- Construct given two inputs
         printClass
         (
             Type a,
             Type b 
-        )
-        {
-            Info << "You gave me two pieces of data of type: " << endl;
-            Info << typeid(a).name() << endl;
-        }
+        );
         
 
 
     // Destructor
     ~printClass()
-     {
-         Info << "destructor called" << endl;
-     }
+    {
+        Info << "destructor called" << endl;
+    }
 };
+
+// this part is usually in fileName.C Files
+// global functions (standalones) are otherwise declared in Header Files
+
+template<class Type>
+printClass<Type>::printClass()
+{
+    Info << "I am an empty constructor" << endl;
+}
+
+template<class Type>
+printClass<Type>::printClass(Type a, Type b)
+{
+    Info << "You gave me two pieces of data of type: " << endl;
+    Info << typeid(a).name() << endl;
+}
+
+
+

@@ -70,6 +70,7 @@ Notes:
 
 
 #include "templateDemo.H"
+#include "inheritanceDemo.H"
 
 int main(int argc, char *argv[])
 {
@@ -78,18 +79,21 @@ int main(int argc, char *argv[])
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-    #include "linearEqnDemo.H"
+    //#include "linearEqnDemo.H"
 
-    printType<int>(1,2);   
-    printType<char>('a','b');
-    printType<bool>(1,0); 
+    //printType<int>(1,2);   
+    //printType<char>('a','b');
+    //printType<bool>(1,0); 
 
  
-    printType2<int>(1,2);   
-    printType2<char>('a','b');
-    printType2<bool>(1,0); 
+    //printType2<int>(1,2);   
+    //printType2<char>('a','b');
+    //printType2<bool>(1,0); 
 
-    printClass<int> hello;    
+    printClass<int> hello;   
+    printClass<float> hello2(5.5,6.7);
+    additionClass<int> hello3;
+    Info << "code finished!" << endl; 
     
     return 0;
 }
