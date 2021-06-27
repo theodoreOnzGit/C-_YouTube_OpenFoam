@@ -33,6 +33,8 @@ Description
 #include "fvCFD.H"
 #include "cubicEqn.H"
 #include "linearEqn.H"
+#include "templateDemo.H"
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 int main(int argc, char *argv[])
@@ -42,44 +44,9 @@ int main(int argc, char *argv[])
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-    Foam::Info << "hi" << Foam::endl;
-    Info << "hi, i am using the foam namespace" << endl;     
-
-    scalar a=5.42;
-    scalar b=4.23;
-
-    Info << "a = " << a << " ; b = " << b << endl;
-
-    Info << "multiply a and b " << a*b << endl;
-    Info << "add a and b " << a+b << endl;
-    Info << "divide a by b " << (a/b) << endl;
-
-
-    linearEqn eq1(2,7);
-    
-    Info << "y = 2x + 7 " << endl;
-    a=eq1.value(5);
-    Info << "at x =5, y = " << a << endl;
-
-    // get derivative
-
-    Info << "dy/dx at x=5  is... " << eq1.derivative(5) << endl;
-     
-    Info << "roots " << eq1.roots() << endl;
-
-    cubicEqn eq2(1,2,3,4);
-
-    Info << "cubic equation value ... at x=7 " << endl;
-
-    Info << eq2.value(7) << endl;
-
-    Info << "dy/dx at x = 0  and x =7 " << endl; 
-    
-    Info << eq2.derivative(0) << endl;
-    Info << "at x = 7 , dy/dx = " << eq2.derivative(7) << endl;
-    Info << "roots " << endl;
-    Info << eq2.roots() << endl;
-    
+    //#include "foamNameSpaceExample1.H"
+    //#include "linearEqnDemo.H"
+    //#include "cubicEqnDemo.H"  
 
     //argList::addNote
     //(
@@ -90,8 +57,8 @@ int main(int argc, char *argv[])
     //#include "postProcess.H"
 
     //#include "addCheckCaseOptions.H"
-    #include "setRootCaseLists.H"
-    #include "createTime.H"
+    //#include "setRootCaseLists.H"
+    //#include "createTime.H"
     //#include "createMesh.H"
 
     //pisoControl piso(mesh);
@@ -101,32 +68,26 @@ int main(int argc, char *argv[])
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-    Info<< "\nStarting time loop\n" << endl;
+    //#include "timeFunctionDemo.H"
 
-    while (runTime.loop())
-    {
-        //Info<< "Time = " << runTime.timeName() << nl << endl;
+    float a=2.23;
+    float b=returnNumber<float>(a);
+    
+    Info << "b is " << b << endl;
+    int d=5.67;
+    int e=returnNumber<int>(d);
 
-        //#include "CourantNo.H"
+    Info << "e is " << e << endl; 
 
-        // Momentum predictor
+    scalar scalar1;
+    scalar1=10.2;
+    scalar scalar2=returnNumber<scalar>(scalar1);   
 
-        //#include "UEqn.H"
-        // --- PISO loop
-        //while (piso.correct())
-        //{
-        //    #include "pEqn.H"
-        //}
-        //#include "TEqn.H"
-        runTime.write();
-	Info << runTime.write() << endl;
+    Info << "scalar value is " << scalar2 << endl;
+    
 
-	Info << runTime.path() << endl;
-
-        runTime.printExecutionTime(Info);
-    }
-
-    Info<< "End\n" << endl;
+    printClass<int> obj1(a);
+    printClass<int> obj2;
 
     return 0;
 }
