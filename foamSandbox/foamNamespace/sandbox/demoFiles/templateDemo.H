@@ -6,7 +6,6 @@
 // this is a function template
 
 
-
 template <typename Type>
 Type printType(Type var1, Type var2)
 {

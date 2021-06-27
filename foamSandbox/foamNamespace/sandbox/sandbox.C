@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
     //printType2<int>(1,2);   
     //printType2<char>('a','b');
     //printType2<bool>(1,0); 
-
+    
     printClass<int> hello;   
     printClass<float> hello2(5.5,6.7);
     additionClass<int> hello3;
